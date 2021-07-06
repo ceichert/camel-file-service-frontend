@@ -1,0 +1,27 @@
+<table mat-table [dataSource]="files">
+  <ng-container matColumnDef="uuid">
+    <th mat-header-cell *matHeaderCellDef>uuid</th>
+    <td mat-cell *matCellDef="let element">{{element.uuid}}</td>
+  </ng-container>
+  <ng-container matColumnDef="timestamp">
+    <th mat-header-cell *matHeaderCellDef>timestamp</th>
+    <td mat-cell *matCellDef="let element">{{element.timestamp}}</td>
+  </ng-container>
+  <ng-container matColumnDef="parentPath">
+    <th mat-header-cell *matHeaderCellDef>parent</th>
+    <td mat-cell *matCellDef="let element">{{element.parentPath}}</td>
+  </ng-container>
+  <ng-container matColumnDef="filename">
+    <th mat-header-cell *matHeaderCellDef>filename</th>
+    <td mat-cell *matCellDef="let element">{{element.filename}}</td>
+  </ng-container>
+  <ng-container matColumnDef="download">
+    <th mat-header-cell *matHeaderCellDef>download</th>
+    <td mat-cell *matCellDef="let element"><a href="/camel/data/{{element.uuid}}">Download</a></td>
+  </ng-container>
+  <!--  <tr mat-header-row *matHeaderRowDef="files"></tr>-->
+  <!--  <tr mat-row *matRowDef="let row"></tr>-->
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns:displayedColumns;"></tr>
+</table>
